@@ -57,6 +57,7 @@ RUN chown -R $USERNAME /home/$USERNAME/.config
 
 # Make the folder to mount to
 RUN mkdir -p /home/volume
+RUN chown -R $USERNAME /home/volume
 RUN echo "cd /home/volume" >> /home/$USERNAME/.bashrc
 
 # Enable password-less ssh

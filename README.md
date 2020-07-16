@@ -26,7 +26,10 @@ but you are welcome to try other things!
 8. Start your stack
     * Go to [Portainer](http://laikapack.cheme.cmu.edu:9000)
     * Click on the "Stacks" menu in the sidebar
-    * Click on "+ Add Stack"; make a stack name; copy your updated [`docker-compose.yml`](./docker-compose.yml) into the web editor, then deploy!
+    * Click on "+ Add Stack"; make a stack name\*; copy your updated [`docker-compose.yml`](./docker-compose.yml) into the web editor, then deploy!
+
+\* Save this stack name!
+If you want to mount back to the some folder system later, you must access it using the same exact stack name.
 
 # Access
 That's it!

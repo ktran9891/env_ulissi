@@ -52,6 +52,9 @@ RUN pip install -f https://pytorch-geometric.com/whl/torch-1.5.0.html \
     torch-sparse==latest+cu101 \
     torch-spline-conv==latest+cu101
 
+# Install baselines
+RUN pip install git+https://github.com/Open-Catalyst-Project/baselines.git
+
 ########## End user-specific configurations ##########
 
 # Expose the Jupyter port

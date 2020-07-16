@@ -13,6 +13,10 @@ source /home/ktran/miniconda3/bin/activate
 jt -t oceans16 -vim
 jupyter nbextension enable vim_binding/vim_binding
 
+# Set wandb parameters
+export WANDB_CONFIG_DIR="$HOME/.config/wandb"
+export WANDB_API_KEY=$REDACTED
+
 ########## End user-specific configurations ##########
 
 # Launch Jupyter

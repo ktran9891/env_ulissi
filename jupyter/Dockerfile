@@ -77,6 +77,10 @@ RUN git clone https://github.com/ulissigroup/GASpy.git /home/$USERNAME/GASpy
 RUN git clone https://github.com/ulissigroup/GASpy_regressions.git /home/$USERNAME/GASpy/GASpy_regressions
 COPY gaspyrc.json /home/$USERNAME/GASpy/.gaspyrc.json
 
+# Install profilers
+RUN conda install pyinstrument line_profiler && conda clean -ity
+    
+
 ########## End user-specific configurations ##########
 
 # Expose the Jupyter port

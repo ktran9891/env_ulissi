@@ -28,7 +28,7 @@ RUN chown -R $USERNAME $JUPYTER_DIR
 # Install dependencies for "baselines" repo
 RUN conda config --prepend channels pytorch
 RUN conda install \
-    cudatoolkit=10.0 \
+    cudatoolkit=10.1 \
     ase=3.19.* \
     pymatgen=2020.4.2 \
     pre-commit=2.2.* \
@@ -39,21 +39,22 @@ RUN conda install \
     pytest
 RUN conda clean -ity
 RUN pip install --upgrade pip
-RUN pip install \
+RUN pip install --no-cache-dir \
     demjson \
     Pillow \
     ray[tune] \
     torch-geometric==1.5.* \
     wandb \
     lmdb==0.98
-RUN pip install -f https://pytorch-geometric.com/whl/torch-1.5.0.html \
+RUN pip install --no-cache-dir \
+    -f https://pytorch-geometric.com/whl/torch-1.5.0.html \
     torch-cluster==latest+cu101 \
     torch-scatter==latest+cu101 \
     torch-sparse==latest+cu101 \
     torch-spline-conv==latest+cu101
 
 # Install baselines
-RUN pip install git+https://github.com/Open-Catalyst-Project/baselines.git
+RUN pip install --no-cache-dir git+https://github.com/Open-Catalyst-Project/baselines.git
 
 ########## End user-specific configurations ##########
 

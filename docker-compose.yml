@@ -19,7 +19,7 @@ services:
               mode: host
 
     jupyter:
-        image: ktran9891/env_ulissi:baselines     # replace this with your repo
+        image: ktran9891/env_ulissi:cat     # replace this with your repo
         deploy:
             placement:
                 constraints:

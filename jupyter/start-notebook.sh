@@ -17,6 +17,10 @@ jupyter nbextension enable vim_binding/vim_binding
 export WANDB_CONFIG_DIR="$HOME/.config/wandb"
 export WANDB_API_KEY=$REDACTED
 
+# Finish installing GASpy
+export PYTHONPATH="$HOME/GASpy/GASpy_regressions:${PYTHONPATH}"
+export PYTHONPATH="$HOME/GASpy:${PYTHONPATH}"
+
 ########## End user-specific configurations ##########
 
 # Launch Jupyter

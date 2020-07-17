@@ -1,0 +1,59 @@
+{
+    "temp_directory": "/tmp/",
+    "luigi_host": "NA",
+    "gasdb_path": "/home/ktran/gasdb",
+    "matproj_api_key": "MGOdX3P4nI18eKvE",
+    "fireworks_info":{
+        "lpad_path": "/home/ktran/lpad.yaml",
+        "lpad":{
+            "host": "mongodb05.nersc.gov",
+            "name": "fw_zu_vaspsurfaces",
+            "username": "foo",
+            "password": "bar",
+            "port": "27017"
+            },
+        "backup_directory": "/home/ktran/fwbackups"
+    },
+    "mongo_info":{
+        "atoms":{
+            "host": "mongodb05.nersc.gov",
+            "port": "27017",
+            "database": "db",
+            "collection_name": "atoms",
+            "user": "foo",
+            "password": "bar"
+            },
+        "adsorption":{
+            "host": "mongodb05.nersc.gov",
+            "port": "27017",
+            "database": "db",
+            "collection_name": "adsorption",
+            "user": "foo",
+            "password": "bar"
+            },
+        "surface_energy":{
+            "host": "mongodb05.nersc.gov",
+            "port": "27017",
+            "database": "db",
+            "collection_name": "surface_energy",
+            "user": "foo",
+            "password": "bar"
+            },
+        "catalog":{
+            "host": "mongodb05.nersc.gov",
+            "port": "27017",
+            "database": "db",
+            "collection_name": "catalog",
+            "user": "foo",
+            "password": "bar"
+            },
+        "catalog_readonly":{
+            "host": "mongodb06.nersc.gov",
+            "port": "27017",
+            "database": "db",
+            "collection_name": "catalog",
+            "user": "foo",
+            "password": "bar"
+            }
+    }
+}

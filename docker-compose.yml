@@ -16,7 +16,7 @@ services:
             - target: 22
               published: 2223     # pick your ssh port
               protocol: tcp
-              mode: host
+              mode: ingress
 
     jupyter:
         image: ktran9891/env_ulissi:jupyter     # replace this with your repo

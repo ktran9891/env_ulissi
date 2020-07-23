@@ -53,6 +53,10 @@ RUN mkdir -p /home/$USERNAME/.config
 COPY flake8 /home/$USERNAME/.config/
 RUN chown -R $USERNAME /home/$USERNAME/.config
 
+# Better git
+RUN apt-get install -y git-lfs
+RUN git lfs install
+
 ########## End user-specific configurations ##########
 
 # Make the folder to mount to

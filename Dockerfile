@@ -53,9 +53,61 @@ RUN mkdir -p /home/$USERNAME/.config
 COPY flake8 /home/$USERNAME/.config/
 RUN chown -R $USERNAME /home/$USERNAME/.config
 
-# Better git
-RUN apt-get install -y git-lfs
-RUN git lfs install
+# Install dependencies for "baselines" repo
+RUN conda config --prepend channels pytorch
+RUN conda install \
+    cudatoolkit=10.1 \
+    ase=3.19.* \
+    pymatgen=2020.4.2 \
+    pre-commit=2.2.* \
+    pytorch=1.5.* \
+    tensorboard=1.15.* \
+    pyyaml=5.3.* \
+    gpytorch \
+    pytest
+RUN conda clean -ity
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir \
+    demjson \
+    Pillow \
+    ray[tune] \
+    torch-geometric==1.5.* \
+    wandb \
+    lmdb==0.98
+RUN pip install --no-cache-dir \
+    -f https://pytorch-geometric.com/whl/torch-1.5.0.html \
+    torch-cluster==latest+cu101 \
+    torch-scatter==latest+cu101 \
+    torch-sparse==latest+cu101 \
+    torch-spline-conv==latest+cu101
+
+# Install baselines
+RUN pip install --no-cache-dir git+https://github.com/Open-Catalyst-Project/baselines.git
+
+# Install catalyst-acquisitions dependencies
+RUN conda config --append channels lmmentel
+RUN conda config --append channels plotly
+RUN conda install \
+    mendeleev \
+    tpot>=0.9.5 xgboost>=0.80 \
+    plotly>=4.1.1 chart-studio>=1.0.0 \
+    shapely \
+    fireworks \
+    luigi>=2.8.9 \
+    statsmodels>=0.9.0 \
+    multiprocess>=0.70.5 \
+    pymongo=3.8.0 \
+    atomicwrites
+RUN conda clean -ity
+
+# Install GASpy
+RUN git clone https://github.com/ulissigroup/GASpy.git /home/$USERNAME/GASpy
+RUN git clone https://github.com/ulissigroup/GASpy_regressions.git /home/$USERNAME/GASpy/GASpy_regressions
+COPY gaspyrc.json /home/$USERNAME/GASpy/.gaspyrc.json
+
+# Install profilers
+RUN conda install pyinstrument line_profiler && conda clean -ity
+
 
 ########## End user-specific configurations ##########
 

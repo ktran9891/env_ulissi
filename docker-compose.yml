@@ -1,15 +1,15 @@
 version: '3.7'
 services:
     ssh:
-        image: ktran9891/env_ulissi:latest      # replace this with your config repo
+        image: ktran9891/env_ulissi:cat_ssh     # replace this with your config repo
         deploy:
             placement:
                 constraints:
-                    - node.hostname == lambda-quad-3990-2080  # pick your computer
+                    - node.hostname == lambda-quad-3970-rtxtitan  # pick your computer
             resources:
                 limits:
-                    cpus: '4'
-                    memory: 500M
+                    cpus: '32'
+                    memory: 128G
         volumes:
           - ktran-home:/home/volume      # use your own username here
         ports:
@@ -19,15 +19,15 @@ services:
               mode: ingress
 
     jupyter:
-        image: ktran9891/env_ulissi:cat     # replace this with your repo
+        image: ktran9891/env_ulissi:cat_jupyter # replace this with your repo
         deploy:
             placement:
                 constraints:
-                    - node.hostname == lambda-quad-3990-2080    # pick your computer
+                    - node.hostname == lambda-quad-3970-rtxtitan    # pick your computer
             resources:
                 limits:
-                    cpus: '16'
-                    memory: 8G
+                    cpus: '32'
+                    memory: 128G
         volumes:
             - ktran-home:/home/volume  # use your own username here
         ports:

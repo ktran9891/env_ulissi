@@ -108,6 +108,11 @@ COPY gaspyrc.json /home/$USERNAME/GASpy/.gaspyrc.json
 # Install profilers
 RUN conda install pyinstrument line_profiler && conda clean -ity
 
+# Fix some more environmental variables
+COPY extra_bashrc.sh .
+RUN cat extra_bashrc.sh >> /home/$USERNAME/.bashrc
+RUN rm extra_bashrc.sh
+
 
 ########## End user-specific configurations ##########
 

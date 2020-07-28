@@ -82,7 +82,7 @@ RUN pip install --no-cache-dir \
     torch-spline-conv==latest+cu101
 
 # Install baselines
-RUN pip install --no-cache-dir git+https://github.com/Open-Catalyst-Project/baselines.git
+RUN pip install --no-cache-dir git+https://github.com/Open-Catalyst-Project/baselines.git@cfgp_gpu
 
 # Install catalyst-acquisitions dependencies
 RUN conda config --append channels lmmentel
